@@ -1,11 +1,15 @@
-import express from "express"
-import jobsRoutes from './routes/jobs.routes'
+import express from "express";
+import jobsRoutes from './routes/jobs.routes';
+import * as dotenv from "dotenv";
+import './database/config'
+dotenv.config();
+
 
 const app = express();
 
-app.use('/jobs', jobsRoutes)
+app.use('/api/v1/jobs', jobsRoutes)
 
-app.listen(3000, () => {
-    console.log(`Working on port ` + 3000);
+app.listen(process.env.PORT, () => {
+    console.log(`Working on port ` + process.env.PORT);
     
 })
