@@ -12,6 +12,7 @@ interface IJob {
   experienceLevel: string;
   url: string;
   payRange: {min: string, max: string};
+  date?: Date;
   category?: string;
 }
 
@@ -27,6 +28,7 @@ const jobSchema = new Schema<IJob>({
     experienceLevel: { type: String, required: true },
     url: { type: String, required: true },
     payRange: {min: { type: String, required: true }, max: { type: String, required: true }},
+    date: { type: Date, required: false},
     category: { type: String, required: false }
 });
 
